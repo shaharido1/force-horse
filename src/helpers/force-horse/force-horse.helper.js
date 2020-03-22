@@ -67,7 +67,7 @@ export class ForceHorseHelper {
       if (node.label === undefined) {
         node.label = String(node.id);
       }
-      node.class = FHConfig.CLASS_NODE;
+      node.class = node.className || FHConfig.CLASS_NODE;
       node.shape = ForceHorseHelper.getShape(node.shape);
     });
 
@@ -85,7 +85,7 @@ export class ForceHorseHelper {
       }
       edge.sourceLabel = edge.sourceID;
       edge.targetLabel = edge.targetID;
-      edge.class = FHConfig.CLASS_EDGE;
+      edge.class = `edge.className, ${FHConfig.CLASS_EDGE}` || FHConfig.CLASS_EDGE;
     });
 
     // Return the (processed) data
